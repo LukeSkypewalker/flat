@@ -18,7 +18,7 @@
   <div>
     <ul>
       {{#each matches}}
-        {{> query}}
+        {{> match}}
       {{/each}}
     </ul>
   </div>
@@ -49,5 +49,10 @@
 
 
 <template name="query">
+  <li>{{source}} {{dest}} {{text}} {{mail}}</li>
+</template>
+
+
+<template name="match">
   <li>{{source}} {{dest}} {{text}} {{mail}}</li>
 </template>

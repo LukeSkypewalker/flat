@@ -32,13 +32,18 @@ if (Meteor.isClient) {
     matches: function () {
       //TODO VARIABLES - Queries.find({source: XXX, dest: YYY });
       //TODO HIDE and show after submit
-      //TODO console.log(src);
+      //console.log(src);
       return Queries.find({source: dst, dest: src });
     },
 
     allDataBase: function () {
       return Queries.find({});
     }
+    // ,
+
+    // log: function () {
+    //   returs src ;
+    // }
   });
 
    Template.body.events({
