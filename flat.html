@@ -1,0 +1,53 @@
+<head>
+  <title>flatFinder</title>
+</head>
+
+<body>
+    <div class="container">
+    <header>
+  		<h1>FlatFinder</h1> 
+    </header>
+  </div>
+
+  <div>
+     {{> q}}      
+  </div>
+
+  <br>
+  <h2>Matches</h2>
+  <div>
+    <ul>
+      {{#each matches}}
+        {{> query}}
+      {{/each}}
+    </ul>
+  </div>
+ 
+  <br>
+  <h2>ALL DATABASE</h2>
+  <div>
+    <ul>
+      {{#each allDataBase}}
+        {{> query}}
+      {{/each}}
+    </ul>
+  </div>
+
+
+  
+</body>
+
+
+
+<template name="q">
+	<form class="new-query">
+		<input type="text" name="source" placeholder="Type source station">
+		<input type="text" name="dest" placeholder="Type destination">  
+		<input type="submit" value="Lets Change!">
+	</form> 
+</template>
+
+
+<template name="query">
+  <li>{{source}} {{dest}} {{text}} {{mail}}</li>
+</template>

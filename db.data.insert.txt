@@ -1,0 +1,34 @@
+db.queries.insert({source: 'Fili', dest: 'Begovaya', sourceFlat: 1, destFlat: [1,2,3], sourcePrice: 30000, destPrice: 50000, sourceRestrictions: [ 'Family', 'Only4Girls'], destRestrictions: [ 'Family', 'Only4Girls' ], gender: 'm', name: 'BillGates', age: 50, mail: 'illgates@mail.ru', phone: '+12345', date: new Date(2015, 10, 3, 19, 00)});
+
+db.queries.insert({source: 'Fili', dest: 'Begovaya', sourceFlat: 1, destFlat: [1,2,3], sourcePrice: 30000, destPrice: 50000, mail: 'Billgates@mail.ru'});
+db.queries.insert({source: 'Begovaya', dest: 'Fili', sourceFlat: 1, destFlat: [1,2,3], sourcePrice: 30000, destPrice: 50000, mail: 'Willgates@mail.ru'});
+db.queries.insert({source: 'Begovaya', dest: 'Vihino', sourceFlat: 1, destFlat: [1,2,3], sourcePrice: 30000, destPrice: 50000, mail: 'Nillgates@mail.ru'});
+db.queries.insert({source: 'Vihino', dest: 'Fili', sourceFlat: 1, destFlat: [1,2,3], sourcePrice: 30000, destPrice: 50000, mail: 'Zillgates@mail.ru'});
+db.queries.insert({source: 'VDNH', dest: 'Sokol', sourceFlat: 1, destFlat: [1,2,3], sourcePrice: 30000, destPrice: 50000, mail: 'Xillgates@mail.ru'});
+
+
+
+db.queries.find({source: 'Begovaya', dest: 'Fili' });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Сколько времени вы тратите на дорогу ?
+
+
+Хотите переехать ближе чтобы не тратить его ?
+
+
+Почему не переезжатете ?
