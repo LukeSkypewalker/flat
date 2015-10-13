@@ -1,4 +1,6 @@
 Queries = new Mongo.Collection("queries");
+src="";
+dst="";
 
 if (Meteor.isClient) {
 
@@ -6,14 +8,23 @@ if (Meteor.isClient) {
     'submit form': function (e) {
       e.preventDefault();
   
+      src=$(e.target).find('[name=source]').val();
+      dst=$(e.target).find('[name=dest]').val();
       // Insert a query into the collection
       Queries.insert({
-        source: $(e.target).find('[name=source]').val(),
-        dest: $(e.target).find('[name=dest]').val()
+        source: src,
+        dest: dst
       });
  
-      //TODO Clear form
-      //$(e.target).find('[name=source]').setValvalue = "z";
+      // Queries.find({
+      //   source: $(e.target).find('[name=dest]').val(), 
+      //   dest: $(e.target).find('[name=source]').val() 
+      // })
+
+
+      //Clear form
+      $(e.target).find('[name=source]').val("");
+      $(e.target).find('[name=dest]').val("");
     }
   });
 
@@ -21,7 +32,8 @@ if (Meteor.isClient) {
     matches: function () {
       //TODO VARIABLES - Queries.find({source: XXX, dest: YYY });
       //TODO HIDE and show after submit
-      return Queries.find({source: 'Begovaya', dest: 'Fili' });
+      //TODO console.log(src);
+      return Queries.find({source: dst, dest: src });
     },
 
     allDataBase: function () {
