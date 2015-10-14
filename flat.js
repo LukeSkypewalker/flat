@@ -1,6 +1,8 @@
 Queries = new Mongo.Collection("queries");
 src="";
 dst="";
+//Mtchs= new Mongo.Collection("mtchs");
+mtchs=[];
 
 if (Meteor.isClient) {
 
@@ -16,10 +18,15 @@ if (Meteor.isClient) {
         dest: dst
       });
  
-      // Queries.find({
-      //   source: $(e.target).find('[name=dest]').val(), 
-      //   dest: $(e.target).find('[name=source]').val() 
-      // })
+      Session.set('mtchs', Queries.find({
+         source: $(e.target).find('[name=dest]').val(), 
+         dest: $(e.target).find('[name=source]').val() 
+      }).fetch() );
+
+      //Mtchs.remove({});
+      // Mtchs.Queries.find({
+      //    source: $(e.target).find('[name=dest]').val(), 
+      //    dest: $(e.target).find('[name=source]').val() 
 
 
       //Clear form
@@ -33,25 +40,18 @@ if (Meteor.isClient) {
       //TODO VARIABLES - Queries.find({source: XXX, dest: YYY });
       //TODO HIDE and show after submit
       //console.log(src);
-      return Queries.find({source: dst, dest: src });
+      return Session.get('mtchs');
     },
 
     allDataBase: function () {
       return Queries.find({});
     }
-    // ,
-
-    // log: function () {
-    //   returs src ;
-    // }
   });
 
-   Template.body.events({
+  Template.body.events({
     "submit.new-query": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
- 
-  
     }
   });
 
@@ -62,4 +62,3 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
-
