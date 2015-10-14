@@ -1,8 +1,7 @@
 Queries = new Mongo.Collection("queries");
 src="";
 dst="";
-//Mtchs= new Mongo.Collection("mtchs");
-mtchs=[];
+//mtchs=[];
 
 if (Meteor.isClient) {
 
@@ -23,15 +22,10 @@ if (Meteor.isClient) {
          dest: $(e.target).find('[name=source]').val() 
       }).fetch() );
 
-      //Mtchs.remove({});
-      // Mtchs.Queries.find({
-      //    source: $(e.target).find('[name=dest]').val(), 
-      //    dest: $(e.target).find('[name=source]').val() 
-
-
+      console.log(Session.get('mtchs'))
       //Clear form
-      $(e.target).find('[name=source]').val("");
-      $(e.target).find('[name=dest]').val("");
+      //$(e.target).find('[name=source]').val("");
+      //$(e.target).find('[name=dest]').val("");
     }
   });
 
