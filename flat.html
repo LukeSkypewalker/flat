@@ -15,7 +15,7 @@
 
   <br>
   <div align="center">
-  <h2>Matches</h2>
+  <h2>Matches:</h2>
     <ul>
       {{#each matches}}
         {{> match}}
@@ -24,7 +24,6 @@
   </div>
  
 
-<!-- TODO CUT BUTTON SHOW DATABASE -->
   <br>
 
  
@@ -51,19 +50,26 @@
 		<input type="text" name="dest" placeholder="Type destination"><br>
 		
 		<input type="radio" checked="checked" name="sourceType" value="0" id="src0"/><label for="src0">комната</label>
-		<input type="radio" checked="checked" name="destType" value="0" id="dst0"/><label for="dst0">комната</label><br>
 
 		<input type="radio" checked="checked" name="sourceType" value="1" id="src1"/><label for="src1">1к.кв</label>
-		<input type="radio" checked="checked" name="destType" value="1" id="dst1"/><label for="dst1">1к.кв</label><br>
-
+		
 		<input type="radio" checked="checked" name="sourceType" value="2" id="src2"/><label for="src2">2к.кв</label>
-		<input type="radio" checked="checked" name="destType" value="2" id="dst2"/><label for="dst2">2к.кв</label><br>
 
-		<input type="radio" checked="checked" name="sourceType" value="3" id="src3"/><label for="src3">2к.кв</label>
-		<input type="radio" checked="checked" name="destType" value="3" id="dst3"/><label for="dst3">3к.кв</label><br>
+		<input type="radio" checked="checked" name="sourceType" value="3" id="src3"/><label for="src3">3к.кв</label>
 
 		<input type="radio" checked="checked" name="sourceType" value="9" id="src9"/><label for="src9">Дом</label>
-		<input type="radio" checked="checked" name="destType" value="9" id="dst9"/><label for="dst9">Дом</label><br>		
+
+		<input type="radio" checked="checked" name="destType" value="0" id="dst0"/><label for="dst0">комната</label>
+		
+		<input type="radio" checked="checked" name="destType" value="1" id="dst1"/><label for="dst1">1к.кв</label>
+
+		<input type="radio" checked="checked" name="destType" value="2" id="dst2"/><label for="dst2">2к.кв</label>
+
+		<input type="radio" checked="checked" name="destType" value="3" id="dst3"/><label for="dst3">3к.кв</label>
+
+		<input type="radio" checked="checked" name="destType" value="9" id="dst9"/><label for="dst9">Дом</label>	
+
+		<br><br>	
 
 		<input type="text" name="sourcePrice" placeholder="Type curent rent price">
 		<input type="text" name="destPrice" placeholder="Type MAX affordable price">
@@ -74,7 +80,7 @@
 
 
 <template name="query">
-  <li>{{source}} {{dest}} {{mail}}</li>
+  <li>{{source}} {{dest}} {{mail}}<button class="delete">&times;</button></li>
 </template>
 
 

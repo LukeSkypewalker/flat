@@ -29,6 +29,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.query.events({
+    "click .delete": function () {
+      Queries.remove(this._id);
+    }
+  });
+
   Template.body.helpers({
     matches: function () {
       //TODO VARIABLES - Queries.find({source: XXX, dest: YYY });
@@ -48,6 +54,7 @@ if (Meteor.isClient) {
       event.preventDefault();
     }
   });
+
 
 }
 
