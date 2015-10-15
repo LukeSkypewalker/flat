@@ -15,8 +15,8 @@ if (Meteor.isClient) {
   
       src=$(e.target).find('[name=src]').val();
       dst=$(e.target).find('[name=dst]').val();
-      srcType=$(e.target).find('[name=srcType]').val();
-      dstType=$(e.target).find('[name=dstType]').val();
+      srcType=$("input:radio[name=srcType]:checked").val();
+      dstType=$("input:radio[name=dstType]:checked").val();
       srcPrice=$(e.target).find('[name=srcPrice]').val();
       dstPrice=$(e.target).find('[name=dstPrice]').val();
       email=$(e.target).find('[name=email]').val();

@@ -93,10 +93,12 @@
 
 
 <template name="match">
-  <li> {{src}} - {{srcType}} -{{srcPrice}} | {{email}}</li>
+  <li> {{src}} - {{srcType}} -{{srcPrice}} | 
+  	<a href="mailto:{{email}}?subject=LetsChange flats!">{{email}}</a></li>
 </template>
 
 <template name="query">
-  <li>{{src}} - {{srcType}} - {{srcPrice}} | {{dst}} - {{dstType}} {{dstPrice}} | {{email}}<button class="delete">&times;</button></li>
+  <li>{{src}} - {{srcType}} - {{srcPrice}} | {{dst}} - {{dstType}} {{dstPrice}} | <a href="mailto:{{email}}">{{email}}</a>
+  <button class="delete">&times;</button></li>
 </template>
 
