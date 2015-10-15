@@ -5,12 +5,13 @@
 <body>
   <div class="container" align="center">
     <header>
+  		<img src="home.png"/>
   		<h1>FlatFinder</h1> 
     </header>
   </div>
 
   <div align="center">
-     {{> q}}      
+     {{> qw}}      
   </div>
 
   <br>
@@ -24,14 +25,14 @@
   </div>
  
 
-  <br>
+  <br><br>
 
  
 
 
 
  <div align="center">
-	<input type="checkbox" id="cut" class="cut"/><label for="cut" class="del">SHOW ALL DATABASE</label>
+	<input type="checkbox" id="cut" class="cut" checked="checked" /><label for="cut" class="del">SHOW ALL DATABASE</label>
     <ul>
       {{#each allDataBase}}
         {{> query}}
@@ -44,46 +45,50 @@
 
 
 
-<template name="q">
+<template name="qw">
 	<form class="new-query">
-		<input type="text" name="source" placeholder="Type source station">
-		<input type="text" name="dest" placeholder="Type destination"><br>
+		<input type="text" name="src" placeholder="Type source station" autofocus>
+		<input type="text" name="dst" placeholder="Type destination"><br>
 		
-		<input type="radio" checked="checked" name="sourceType" value="0" id="src0"/><label for="src0">комната</label>
+		<input type="radio"  name="srcType" value="0" id="src0"/><label for="src0">комната</label>
 
-		<input type="radio" checked="checked" name="sourceType" value="1" id="src1"/><label for="src1">1к.кв</label>
+		<input type="radio"  name="srcType" value="1" id="src1" checked="checked"/><label for="src1">1к.кв</label>
 		
-		<input type="radio" checked="checked" name="sourceType" value="2" id="src2"/><label for="src2">2к.кв</label>
+		<input type="radio" name="srcType" value="2" id="src2"/><label for="src2">2к.кв</label>
 
-		<input type="radio" checked="checked" name="sourceType" value="3" id="src3"/><label for="src3">3к.кв</label>
+		<input type="radio" name="srcType" value="3" id="src3"/><label for="src3">3к.кв</label>
 
-		<input type="radio" checked="checked" name="sourceType" value="9" id="src9"/><label for="src9">Дом</label>
+		<input type="radio" name="srcType" value="9" id="src9"/><label for="src9">Дом</label>
 
-		<input type="radio" checked="checked" name="destType" value="0" id="dst0"/><label for="dst0">комната</label>
+		<input type="radio" name="dstType" value="0" id="dst0"/><label for="dst0">комната</label>
 		
-		<input type="radio" checked="checked" name="destType" value="1" id="dst1"/><label for="dst1">1к.кв</label>
+		<input type="radio" name="dstType" value="1" id="dst1" checked="checked"/><label for="dst1">1к.кв</label>
 
-		<input type="radio" checked="checked" name="destType" value="2" id="dst2"/><label for="dst2">2к.кв</label>
+		<input type="radio" name="dstType" value="2" id="dst2"/><label for="dst2">2к.кв</label>
 
-		<input type="radio" checked="checked" name="destType" value="3" id="dst3"/><label for="dst3">3к.кв</label>
+		<input type="radio" name="dstType" value="3" id="dst3"/><label for="dst3">3к.кв</label>
 
-		<input type="radio" checked="checked" name="destType" value="9" id="dst9"/><label for="dst9">Дом</label>	
+		<input type="radio" name="dstType" value="9" id="dst9"/><label for="dst9">Дом</label>	
 
 		<br><br>	
 
-		<input type="text" name="sourcePrice" placeholder="Type curent rent price">
-		<input type="text" name="destPrice" placeholder="Type MAX affordable price">
+		<input type="text" name="srcPrice" placeholder="Type curent rent price" value="10000">
+		<input type="text" name="dstPrice" placeholder="Type MAX affordable price" value=1000000000>
+		<br><br>
+
+		<input type="text" name="email" placeholder="Type your E-mail">
+
 		<br><br>
 		<input type="submit" value="Lets Change!">
 	</form> 
 </template>
 
 
-<template name="query">
-  <li>{{source}} {{dest}} {{mail}}<button class="delete">&times;</button></li>
-</template>
-
-
 <template name="match">
-  <li>{{source}} {{dest}} {{mail}}</li>
+  <li> {{src}} - {{srcType}} -{{srcPrice}} | {{email}}</li>
 </template>
+
+<template name="query">
+  <li>{{src}} - {{srcType}} - {{srcPrice}} | {{dst}} - {{dstType}} {{dstPrice}} | {{email}}<button class="delete">&times;</button></li>
+</template>
+
