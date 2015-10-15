@@ -1,104 +1,118 @@
 <head>
-  <title>flatFinder</title>
+	<title>flatFinder</title>
 </head>
 
 <body>
-  	<div > 
-  		"И когда в самом деле творить чудеса,<br>
-  		И когда еще делать для мира добро,<br>
-  		Если в жизни своей по 4 часа<br>
-  		Каждый день ты живешь в подземельях метро.."<br>
-  	</div>
-
-  <header>
-  <div class="container" align="center">
-   
-  		<img src="home.png"/>
-  		<h1>FlatFinder</h1> 
-  </div>
-  </header>
-
-  <div align="center">
-     {{> qw}}      
-  </div>
-
-  <br>
-  <div align="center">
-  <h2>Matches:</h2>
-    <ul>
-      {{#each matches}}
-        {{> match}}
-      {{/each}}
-    </ul>
-  </div>
- 
-
-  <br><br>
-
- 
-
-
-
- <div align="center">
-	<input type="checkbox" id="cut" class="cut" checked="checked" /><label for="cut" class="del">SHOW ALL DATABASE</label>
-    <ul>
-      {{#each allDataBase}}
-        {{> query}}
-      {{/each}}
-    </ul>
-  </div>
-
-  
+	<header>
+		<div class="flex-container center">
+			<div>
+				<img src="home.png">
+				<h1>FlatFinder</h1>
+			</div>
+			<div>
+				<p class="poem">
+					"И когда в самом деле творить чудеса,<br>
+					И когда еще делать для мира добро,<br>
+					Если в жизни своей по 4 часа<br>
+					Каждый день ты живешь в подземельях метро.."<br>
+				</p>
+			</div>
+		</div>
+	</header>
+	<br>
+	<br>
+	<div class="container">
+		{{> qw}}
+	</div>
+	<br><br>
+	<br><br>
+	<div align="center">
+		<h2>Matches:</h2>
+		<ul>
+			{{#each matches}}
+				{{> match}}
+			{{/each}}
+		</ul>
+	</div>
+	<br><br>
+	<div align="center">
+		<input type="checkbox" id="cut" class="cut" checked="checked">
+		<h2>All database:</h2>
+		<ul>
+			{{#each allDataBase}}
+				{{> query}}
+			{{/each}}
+		</ul>
+	</div>
 </body>
 
 
 
 <template name="qw">
-	<form class="new-query">
-		<input type="text" name="src" placeholder="Type source station" autofocus>
-		<input type="text" name="dst" placeholder="Type destination"><br>
-		
-		<input type="radio"  name="srcType" value="0" id="src0"/><label for="src0">комната</label>
-
-		<input type="radio"  name="srcType" value="1" id="src1" checked="checked"/><label for="src1">1к.кв</label>
-		
-		<input type="radio" name="srcType" value="2" id="src2"/><label for="src2">2к.кв</label>
-
-		<input type="radio" name="srcType" value="3" id="src3"/><label for="src3">3к.кв</label>
-
-		<input type="radio" name="srcType" value="9" id="src9"/><label for="src9">Дом</label>
-
-		<input type="radio" name="dstType" value="0" id="dst0"/><label for="dst0">комната</label>
-		
-		<input type="radio" name="dstType" value="1" id="dst1" checked="checked"/><label for="dst1">1к.кв</label>
-
-		<input type="radio" name="dstType" value="2" id="dst2"/><label for="dst2">2к.кв</label>
-
-		<input type="radio" name="dstType" value="3" id="dst3"/><label for="dst3">3к.кв</label>
-
-		<input type="radio" name="dstType" value="9" id="dst9"/><label for="dst9">Дом</label>	
-
-		<br><br>	
-
-		<input type="text" name="srcPrice" placeholder="Type curent rent price" value="10000">
-		<input type="text" name="dstPrice" placeholder="Type MAX affordable price" value=1000000000>
+	<form class="new-query center">
+		<div class="flex-container">
+			<div class="col">
+				<div>
+					<input class="form-control" type="text" name="src" placeholder="Type source station" autofocus>
+				</div>
+				<div>
+					<label class="radio-inline">
+						<input type="radio" name="srcType" id="src0" value="0" checked="checked"> комната
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="srcType" id="src1" value="1"> 1к.кв
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="srcType" id="src2" value="2"> 2к.кв
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="srcType" id="src3" value="3"> 3к.кв
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="srcType" id="src9" value="9"> дом
+					</label>
+				</div>
+			</div>
+			<div class="col">
+				<div>
+					<input class="form-control" type="text" name="dst" placeholder="Type destination">
+				</div>
+				<div>
+					<label class="radio-inline">
+						<input type="radio" name="dstType" id="dst0" value="0" checked="checked"> комната
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="dstType" id="dst1" value="1"> 1к.кв
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="dstType" id="dst2" value="2"> 2к.кв
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="dstType" id="dst3" value="3"> 3к.кв
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="dstType" id="dst9" value="9"> дом
+					</label>
+				</div>
+			</div>
+		</div>
 		<br><br>
-
-		<input type="text" name="email" placeholder="Type your E-mail">
-
+		<input class="form-control" type="text" name="srcPrice" placeholder="Type curent rent price" value="10000">
+		<input class="form-control" type="text" name="dstPrice" placeholder="Type MAX affordable price" value=1000000000>
 		<br><br>
-		<input type="submit" value="Lets Change!">
-	</form> 
+		<input class="form-control" type="text" name="email" placeholder="Type your E-mail">
+		<br><br>
+		<button type="submit" class="btn btn-primary btn-lg btn-primary-outline">Lets Change!</button>
+	</form>
 </template>
 
-
 <template name="match">
-  <li> {{src}} - {{srcType}} -{{srcPrice}} | 
-  	<a href="mailto:{{email}}?subject=LetsChange flats!">{{email}}</a></li>
+	<li> {{src}} - {{srcType}} -{{srcPrice}} | 
+		<a href="mailto:{{email}}?subject=LetsChange flats!">{{email}}</a></li>
 </template>
 
 <template name="query">
-  <li>{{src}} - {{srcType}} - {{srcPrice}} | {{dst}} - {{dstType}} {{dstPrice}} | <a href="mailto:{{email}}">{{email}}</a>
-  <button class="delete">&times;</button></li>
+	<li>{{src}} - {{srcType}} - {{srcPrice}} | {{dst}} - {{dstType}} {{dstPrice}} | <a href="mailto:{{email}}">{{email}}</a>
+	<button class="btn btn-danger btn-danger-outline btn-sm delete">&times;</button></li>
 </template>
 
