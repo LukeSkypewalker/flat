@@ -24,3 +24,6 @@ stylus
 accounts-password
 mrt:accounts-vk
 accounts-facebook
+dburles:google-maps
+mdg:geolocation
+angular

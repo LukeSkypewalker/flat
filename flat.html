@@ -19,8 +19,11 @@
 			</div>
 		</div>
 	</header>
-	<br>
-	<br>
+
+	<div>
+		{{> map}}
+	</div>
+
 	<div class="container">
 		{{> qw}}
 	</div>
@@ -44,6 +47,9 @@
 			{{/each}}
 		</ul>
 	</div>
+
+
+
 </body>
 
 
@@ -116,3 +122,13 @@
 	<button class="btn btn-danger btn-danger-outline btn-sm delete">&times;</button></li>
 </template>
 
+
+<template name="map">  
+  <div class="map-container">
+    {{#unless geolocationError}}
+      {{> googleMap name="map" options=mapOptions}}
+    {{else}}
+      Geolocation failed: {{geolocationError}}
+    {{/unless}}
+  </div>
+</template> 

@@ -4,10 +4,69 @@
 //MAP, coordinates, MongoDB GEO indexes
 
 
-
 Queries = new Mongo.Collection("queries");
 
 if (Meteor.isClient) {
+
+  Meteor.startup(function() {
+    GoogleMaps.load();
+  });
+
+  Template.map.helpers({
+    // geolocationError: function() {
+    //   var error = Geolocation.error();
+    //   return error && error.message;
+    // },
+    mapOptions: function() {
+      if (GoogleMaps.loaded()) {
+        return {
+          center: new google.maps.LatLng(55.7500, 37.6214),
+          zoom: 12
+        };
+      }
+    }
+  });
+
+  Template.map.onCreated(function() {
+    GoogleMaps.ready('map', function(map) {
+      
+      //var geo = Geolocation.latLng();   
+      var markerSrc = new google.maps.Marker({
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        //position: geo,
+        position: new google.maps.LatLng(55.75, 37.4972),
+        map: map.instance,
+        title: 'Source',
+        icon: 'up.png'
+      });
+      var markerDst = new google.maps.Marker({
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: new google.maps.LatLng(55.75, 37.7255),
+        map: map.instance,
+        title: 'Destination',
+        icon: 'down.png'
+      });
+      
+      google.maps.event.addListener(markerSrc, 'dragend', function(event) {
+        Session.set('srcLat', event.latLng.lat());
+        Session.set('srcLng', event.latLng.lng());
+        //console.log(event.latLng.lat() +" "+ event.latLng.lng());
+        console.log(Session.get('srcLat') +" "+ Session.get('srcLng'));
+      });
+
+      google.maps.event.addListener(markerDst, 'dragend', function(event) {
+        Session.set('dstLat', event.latLng.lat());
+        Session.set('dstLng', event.latLng.lng());
+        //console.log(event.latLng.lat() +" "+event.latLng.lng());
+        console.log(Session.get('dstLat') +" "+ Session.get('dstLng'));
+      });
+
+    });
+  });      
+
+
 
   Template.qw.events({
     'submit form': function (e) {
