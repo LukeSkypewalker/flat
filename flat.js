@@ -5,6 +5,7 @@
 
 
 Queries = new Mongo.Collection("queries");
+Subway = new Mongo.Collection("subway");
 
 if (Meteor.isClient) {
 
@@ -68,7 +69,7 @@ if (Meteor.isClient) {
 
 
 
-  Template.qw.events({
+  Template.body.events({
     'submit form': function (e) {
       e.preventDefault();
   
@@ -119,6 +120,10 @@ if (Meteor.isClient) {
 
     allDataBase: function () {
       return Queries.find({});
+    },
+
+    subway: function () {
+      return Subway.find({});
     }
   });
 

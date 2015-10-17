@@ -24,38 +24,9 @@
 		{{> map}}
 	</div>
 
+
 	<div class="container">
-		{{> qw}}
-	</div>
-	<br><br>
-	<br><br>
-	<div align="center">
-		<h2>Matches:</h2>
-		<ul>
-			{{#each matches}}
-				{{> match}}
-			{{/each}}
-		</ul>
-	</div>
-	<br><br>
-	<div align="center">
-		<input type="checkbox" id="cut" class="cut" checked="checked">
-		<h2>All database:</h2>
-		<ul>
-			{{#each allDataBase}}
-				{{> query}}
-			{{/each}}
-		</ul>
-	</div>
-
-
-
-</body>
-
-
-
-<template name="qw">
-	<form class="new-query center">
+		<form class="new-query center">
 		<div class="flex-container">
 			<div class="col">
 				<div>
@@ -108,8 +79,52 @@
 		<br><br>
 		<input class="form-control" type="text" name="email" placeholder="Type your E-mail">
 		<br><br>
+		<p><select size = "1" name="metro">
+  		 <option>test</option>
+		    {{#each subway}}
+				{{> station}}
+			{{/each}}
+  		 </select></p>
+
 		<button type="submit" class="btn btn-primary btn-lg btn-primary-outline">Lets Change!</button>
+
+
 	</form>
+
+	</div>
+	<br><br>
+	<br><br>
+
+
+	<div align="center">
+		<h2>Matches:</h2>
+		<ul>
+			{{#each matches}}
+				{{> match}}
+			{{/each}}
+		</ul>
+	</div>
+	<br><br>
+	<div align="center">
+		<input type="checkbox" id="cut" class="cut" checked="checked">
+		<h2>All database:</h2>
+		<ul>
+			{{#each allDataBase}}
+				{{> query}}
+			{{/each}}
+		</ul>
+	</div>
+
+
+
+</body>
+
+
+
+	
+
+<template name="station">
+	<option value={{id}}> {{id}} </option>
 </template>
 
 <template name="match">
