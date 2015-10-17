@@ -30,7 +30,13 @@
 		<div class="flex-container">
 			<div class="col">
 				<div>
-					<input class="form-control" type="text" name="src" placeholder="Type source station" autofocus>
+					Откуда:
+					<select size = "1" name="src">
+				   			{{#each subway}}
+								{{> station}}
+							{{/each}}
+	  			 	</select>
+					<!-- <input class="form-control" type="text" name="src" placeholder="Type source station" autofocus> -->
 				</div>
 				<div>
 					<label class="radio-inline">
@@ -52,7 +58,12 @@
 			</div>
 			<div class="col">
 				<div>
-					<input class="form-control" type="text" name="dst" placeholder="Type destination">
+					Куда:
+					<select size = "1" name="dst">
+				   		{{#each subway}}
+							{{> station}}
+						{{/each}}
+	  			 	</select>
 				</div>
 				<div>
 					<label class="radio-inline">
@@ -79,12 +90,7 @@
 		<br><br>
 		<input class="form-control" type="text" name="email" placeholder="Type your E-mail">
 		<br><br>
-		<p><select size = "1" name="metro">
-  		 <option>test</option>
-		    {{#each subway}}
-				{{> station}}
-			{{/each}}
-  		 </select></p>
+
 
 		<button type="submit" class="btn btn-primary btn-lg btn-primary-outline">Lets Change!</button>
 
@@ -124,7 +130,7 @@
 	
 
 <template name="station">
-	<option value={{id}}> {{id}} </option>
+	<option value={{name}}> {{name}} </option>
 </template>
 
 <template name="match">

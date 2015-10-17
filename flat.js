@@ -123,7 +123,7 @@ if (Meteor.isClient) {
     },
 
     subway: function () {
-      return Subway.find({});
+      return Subway.find({},{sort:{name:1}});
     }
   });
 
