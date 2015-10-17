@@ -4,8 +4,11 @@
 //MAP, coordinates, MongoDB GEO indexes
 
 
+
+
 Queries = new Mongo.Collection("queries");
 Subway = new Mongo.Collection("subway");
+
 
 if (Meteor.isClient) {
 
@@ -27,6 +30,8 @@ if (Meteor.isClient) {
       }
     }
   });
+
+
 
   Template.map.onCreated(function() {
     GoogleMaps.ready('map', function(map) {
@@ -103,7 +108,9 @@ if (Meteor.isClient) {
       //if you want Clear form
       //$(e.target).find('[name=src]').val("");
       //$(e.target).find('[name=dst]').val("");
-    }
+    },
+
+
   });
 
   Template.query.events({
@@ -124,6 +131,14 @@ if (Meteor.isClient) {
 
     subway: function () {
       return Subway.find({},{sort:{name:1}});
+    },
+
+    showMap:function () {
+      return Session.get('isShowMap');
+    },
+
+    showDataBase:function () {
+      return Session.get('isDataBase');
     }
   });
 

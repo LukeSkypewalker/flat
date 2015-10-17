@@ -20,8 +20,32 @@
 		</div>
 	</header>
 
+
+	<div align="center">
+		<p>Скоро можно будет указывать места на карте, а пока можно просто посмотреть как это будет работать
+			<button id="mapButton" onclick="myFunction()">Нажми меня</button>
+		</p>
+	</div>
+
+	<script>
+		function myFunction() {
+		    if (Session.get('isShowMap')){
+		    	Session.set('isShowMap', false);
+		    	document.getElementById("mapButton").innerHTML = "Show Map";
+		    }
+		    else {
+		    	Session.set('isShowMap', true);
+		    	document.getElementById("mapButton").innerHTML = "Hide Map";
+		    }
+		}
+	</script>
+
+
+
 	<div>
-		{{> map}}
+		{{#if showMap}}
+		  {{> map}}
+		{{/if}}
 	</div>
 
 
@@ -36,6 +60,7 @@
 								{{> station}}
 							{{/each}}
 	  			 	</select>
+	  			 	<br><br>
 					<!-- <input class="form-control" type="text" name="src" placeholder="Type source station" autofocus> -->
 				</div>
 				<div>
@@ -64,6 +89,7 @@
 							{{> station}}
 						{{/each}}
 	  			 	</select>
+	  			 	<br><br>
 				</div>
 				<div>
 					<label class="radio-inline">
@@ -103,7 +129,7 @@
 
 
 	<div align="center">
-		<h2>Matches:</h2>
+		<h2>Совпадения:</h2>
 		<ul>
 			{{#each matches}}
 				{{> match}}
@@ -111,16 +137,17 @@
 		</ul>
 	</div>
 	<br><br>
+
 	<div align="center">
-		<input type="checkbox" id="cut" class="cut" checked="checked">
-		<h2>All database:</h2>
-		<ul>
+		{{#if showDataBase}}
+			<h2>All database:</h2>
+			<ul>
 			{{#each allDataBase}}
 				{{> query}}
 			{{/each}}
-		</ul>
+			</ul>
+		{{/if}}
 	</div>
-
 
 
 </body>
@@ -153,3 +180,5 @@
     {{/unless}}
   </div>
 </template> 
+
+
