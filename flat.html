@@ -111,10 +111,10 @@
 			</div>
 		</div>
 		<br><br>
-		<input class="form-control" type="text" name="srcPrice" placeholder="Type curent rent price" value="10000">
-		<input class="form-control" type="text" name="dstPrice" placeholder="Type MAX affordable price" value=1000000000>
+		<input class="form-control" type="text" name="srcPrice" placeholder="Type curent rent price">
+		<input class="form-control" type="text" name="dstPrice" placeholder="Type MAX affordable price">
 		<br><br>
-		<input class="form-control" type="text" name="email" placeholder="Type your E-mail">
+		<input class="form-control" required="test-required" type="text" name="email" placeholder="Type your real E-mail">
 		<br><br>
 
 
@@ -125,16 +125,25 @@
 
 	</div>
 	<br><br>
-	<br><br>
+
 
 
 	<div align="center">
-		<h2>Совпадения:</h2>
-		<ul>
-			{{#each matches}}
-				{{> match}}
-			{{/each}}
-		</ul>
+		{{#if letsChange}}
+		<p>Ваш запрос успешно добавлен в базу! </p>
+			<br><br>
+			{{#if isMatches}}
+				<h2>Совпадения:</h2>
+				<ul>
+					{{#each matches}}
+						{{> match}}
+					{{/each}}
+				</ul>
+			{{else}}
+				<p>Пока что в нашей базе нет подходящих вариантов,<br>
+				Как только появятся совпадения, мы пришлем вам письмо</p>
+			{{/if}}
+		{{/if}}
 	</div>
 	<br><br>
 

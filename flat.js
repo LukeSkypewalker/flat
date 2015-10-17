@@ -103,7 +103,7 @@ if (Meteor.isClient) {
         })
       .fetch());
 
-      console.log(Session.get('matches'))
+      Session.set('isLetsChange', true);
       
       //if you want Clear form
       //$(e.target).find('[name=src]').val("");
@@ -139,7 +139,15 @@ if (Meteor.isClient) {
 
     showDataBase:function () {
       return Session.get('isDataBase');
-    }
+    },
+
+    letsChange:function () {
+      return Session.get('isLetsChange');
+    },
+
+    isMatches:function () { 
+      return (Session.get('matches').length >0);
+    },
   });
 
 }
