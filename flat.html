@@ -23,7 +23,7 @@
 
 	<div align="center">
 		<p>Скоро можно будет указывать места на карте, примерно вот так -
-			<button id="mapButton" onclick="myFunction()">Нажми меня</button><br>
+			<button id="mapButton" onclick="myFunction()" class="btn btn-primary btn-sm btn-primary-outline">Нажми меня</button><br>
 			Появится возможность выкладывать фотографии и описания квартир<br>и весь остальной необходимый функцинал.<br>
 		</p>
 	</div>
@@ -61,7 +61,7 @@
 			<div class="col">
 				<div>
 					Откуда:
-					<select size = "1" name="src">
+					<select size = "1" name="src" class="form-control">
 				   			{{#each subway}}
 								{{> station}}
 							{{/each}}
@@ -90,7 +90,7 @@
 			<div class="col">
 				<div>
 					Куда:
-					<select size = "1" name="dst">
+					<select size = "1" name="dst" class="form-control">
 				   		{{#each subway}}
 							{{> station}}
 						{{/each}}
