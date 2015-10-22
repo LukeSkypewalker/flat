@@ -80,6 +80,12 @@ if (Meteor.isClient) {
   
       src=$(e.target).find('[name=src]').val();
       dst=$(e.target).find('[name=dst]').val();
+
+      // srcLat=Session.get('srcLat')
+      // srcLng=Session.get('srcLng')
+      // dstLat=Session.get('dstLat')
+      // dstLng=Session.get('dstLng')
+      
       srcType=$("input:radio[name=srcType]:checked").val();
       dstType=$("input:radio[name=dstType]:checked").val();
       srcPrice=$(e.target).find('[name=srcPrice]').val();
@@ -87,7 +93,11 @@ if (Meteor.isClient) {
       email=$(e.target).find('[name=email]').val();
 
       Queries.insert({
-        src: src,
+        // srcLat: srcLat,
+        // srcLng: srcLng,
+        // dstLat: dstLat,
+        // dstLng: dstLng,
+        src: src, 
         dst: dst,
         srcType: srcType,
         dstType: dstType,
@@ -95,6 +105,7 @@ if (Meteor.isClient) {
         dstPrice: dstPrice,
         email: email
       });
+ 
  
       Session.set('matches', 
         Queries.find({
@@ -130,7 +141,7 @@ if (Meteor.isClient) {
     },
 
     subway: function () {
-      return Subway.find({},{sort:{name:1}});
+      return Subway.find();
     },
 
     showMap:function () {
