@@ -59,25 +59,19 @@
 		<form class="new-query center">
 		<div class="flex-container">
 			<div class="col">
-<<<<<<< HEAD
 				
 				{{#unless showMap}}
 					<div>
 						Откуда:
-						<select size = "1" name="src">
-=======
-				<div>
-					Откуда:
-					<select size = "1" name="src" class="form-control">
->>>>>>> origin/master
+						<select size = "1" name="src" class="form-control">
 				   			{{#each subway}}
 								{{> station}}
 							{{/each}}
-	  			 		</select>
-	  			 	
+	  			 		</select> 	
 	  			 		<br><br>
 						<!-- <input class="form-control" type="text" name="src" placeholder="Type source station" autofocus> -->
 					</div>
+
 				{{/unless}}
 				<div>
 					<label class="radio-inline">
@@ -98,11 +92,11 @@
 				</div>
 			</div>
 			<div class="col">
-<<<<<<< HEAD
+
 				{{#unless showMap}}
 					<div>
 						Куда:
-						<select size = "1" name="dst">
+						<select size = "1" name="dst" class="form-control">
 					   		{{#each subway}}
 								{{> station}}
 							{{/each}}
@@ -110,17 +104,7 @@
 		  			 	<br><br>
 					</div>
 				{{/unless}}	
-=======
-				<div>
-					Куда:
-					<select size = "1" name="dst" class="form-control">
-				   		{{#each subway}}
-							{{> station}}
-						{{/each}}
-	  			 	</select>
-	  			 	<br><br>
-				</div>
->>>>>>> origin/master
+
 				<div>
 					<label class="radio-inline">
 						<input type="radio" name="dstType" id="dst0" value="0" checked="checked"> комната
