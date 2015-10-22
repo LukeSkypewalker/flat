@@ -50,25 +50,29 @@
 	</div>
 	
 	<br>
-	<div align="center">	
+	<!-- <div align="center">	
 		<p>База данных уже работает, оставляйте заявки через выпадающие списки метро:<br></p>
-	</div>
+	</div> -->
 
 	<div class="container">
 
 		<form class="new-query center">
 		<div class="flex-container">
 			<div class="col">
-				<div>
-					Откуда:
-					<select size = "1" name="src">
+				
+				{{#unless showMap}}
+					<div>
+						Откуда:
+						<select size = "1" name="src">
 				   			{{#each subway}}
 								{{> station}}
 							{{/each}}
-	  			 	</select>
-	  			 	<br><br>
-					<!-- <input class="form-control" type="text" name="src" placeholder="Type source station" autofocus> -->
-				</div>
+	  			 		</select>
+	  			 	
+	  			 		<br><br>
+						<!-- <input class="form-control" type="text" name="src" placeholder="Type source station" autofocus> -->
+					</div>
+				{{/unless}}
 				<div>
 					<label class="radio-inline">
 						<input type="radio" name="srcType" id="src0" value="0" checked="checked"> комната
@@ -88,15 +92,17 @@
 				</div>
 			</div>
 			<div class="col">
-				<div>
-					Куда:
-					<select size = "1" name="dst">
-				   		{{#each subway}}
-							{{> station}}
-						{{/each}}
-	  			 	</select>
-	  			 	<br><br>
-				</div>
+				{{#unless showMap}}
+					<div>
+						Куда:
+						<select size = "1" name="dst">
+					   		{{#each subway}}
+								{{> station}}
+							{{/each}}
+		  			 	</select>
+		  			 	<br><br>
+					</div>
+				{{/unless}}	
 				<div>
 					<label class="radio-inline">
 						<input type="radio" name="dstType" id="dst0" value="0" checked="checked"> комната

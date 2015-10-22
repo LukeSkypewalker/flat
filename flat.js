@@ -16,6 +16,8 @@ if (Meteor.isClient) {
     GoogleMaps.load();
   });
 
+  Session.set('isShowMap',false);
+
   Template.map.helpers({
     // geolocationError: function() {
     //   var error = Geolocation.error();
@@ -58,6 +60,7 @@ if (Meteor.isClient) {
       google.maps.event.addListener(markerSrc, 'dragend', function(event) {
         Session.set('srcLat', event.latLng.lat());
         Session.set('srcLng', event.latLng.lng());
+        //Session.set('srcLatLng', event.latLng);
         //console.log(event.latLng.lat() +" "+ event.latLng.lng());
         console.log(Session.get('srcLat') +" "+ Session.get('srcLng'));
       });
@@ -77,42 +80,64 @@ if (Meteor.isClient) {
   Template.body.events({
     'submit form': function (e) {
       e.preventDefault();
-  
-      src=$(e.target).find('[name=src]').val();
-      dst=$(e.target).find('[name=dst]').val();
 
-      // srcLat=Session.get('srcLat')
-      // srcLng=Session.get('srcLng')
-      // dstLat=Session.get('dstLat')
-      // dstLng=Session.get('dstLng')
-      
       srcType=$("input:radio[name=srcType]:checked").val();
       dstType=$("input:radio[name=dstType]:checked").val();
       srcPrice=$(e.target).find('[name=srcPrice]').val();
       dstPrice=$(e.target).find('[name=dstPrice]').val();
       email=$(e.target).find('[name=email]').val();
 
-      Queries.insert({
-        // srcLat: srcLat,
-        // srcLng: srcLng,
-        // dstLat: dstLat,
-        // dstLng: dstLng,
-        src: src, 
-        dst: dst,
-        srcType: srcType,
-        dstType: dstType,
-        srcPrice: srcPrice,
-        dstPrice: dstPrice,
-        email: email
-      });
+      if (Session.get('isShowMap')){
+      
+        srcLat=Session.get('srcLat')
+        srcLng=Session.get('srcLng')
+        dstLat=Session.get('dstLat')
+        dstLng=Session.get('dstLng')
+            
+        Queries.insert({
+          srcLat: srcLat,
+          srcLng: srcLng,
+          //srcLatLng: Session.get('srcLatLng'),
+          dstLat: dstLat,
+          dstLng: dstLng,
+          srcType: srcType,
+          dstType: dstType,
+          srcPrice: srcPrice,
+          dstPrice: dstPrice,
+          email: email
+        });
+
+        Session.set('matches', 
+          Queries.find({
+           // KOSTYA, its your time !
+          })
+        .fetch());
+      }
+      else{
+        src=$(e.target).find('[name=src]').val();
+        dst=$(e.target).find('[name=dst]').val();
+        
+        Queries.insert({
+          src: src, 
+          dst: dst,
+          srcType: srcType,
+          dstType: dstType,
+          srcPrice: srcPrice,
+          dstPrice: dstPrice,
+          email: email
+        });
+        
+        Session.set('matches', 
+          Queries.find({
+           src: dst, 
+           dst: src,
+          })
+        .fetch());
+      }  
+
+
+
  
- 
-      Session.set('matches', 
-        Queries.find({
-         src: dst, 
-         dst: src,
-        })
-      .fetch());
 
       Session.set('isLetsChange', true);
       
