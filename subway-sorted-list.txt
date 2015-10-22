@@ -180,30 +180,3 @@ db.subway.insert({ "_id" : "3aZFu4rrGWvxWDsgo", "lat" : 55.782057, "lng" : 37.70
 db.subway.insert({ "_id" : "v7axTfeWgvj2kcJND", "lat" : 55.663146, "lng" : 37.482852, "id" : "1.162", "name" : "Юго-Западная" });
 db.subway.insert({ "_id" : "PbevJkkdW3Dv6Htht", "lat" : 55.622436, "lng" : 37.609047, "id" : "9.163", "name" : "Южная" });
 db.subway.insert({ "_id" : "ioRbEKGf7qnL4bWhH", "lat" : 55.606182, "lng" : 37.5334, "id" : "6.164", "name" : "Ясенево" });
-
-
-
-
-
-
-
-
-
-
-
-
-db.subway.insert({ "_id" : "c5w7otq6fru8RRRDF", "lat" : 55.775179, "lng" : 37.582303, "id" : "5.20", "name" : "Белорусская" });
-db.subway.insert({ "_id" : "ZoKJwg99yWfsW6rNA", "lat" : 55.743168, "lng" : 37.565425, "id" : "4.48", "name" : "Киевская" });
-db.subway.insert({ "_id" : "LPAM5KpCchW2aCFK2", "lat" : 55.74361, "lng" : 37.56735, "id" : "5.49", "name" : "Киевская" });
-db.subway.insert({ "_id" : "TdGmGGwSN39rGibNX", "lat" : 55.775672, "lng" : 37.654772, "id" : "5.55", "name" : "Комсомольская" });
-db.subway.insert({ "_id" : "9osEghv3QKqtCvjdr", "lat" : 55.75436, "lng" : 37.633877, "id" : "7.51", "name" : "Китай-город" });
-db.subway.insert({ "_id" : "3mgXnDq339SgL7FdD", "lat" : 55.758631, "lng" : 37.661059, "id" : "5.71", "name" : "Курская" });
-db.subway.insert({ "_id" : "6nhZP5WLYW37BwBmN", "lat" : 55.729264, "lng" : 37.611049, "id" : "5.93", "name" : "Октябрьская" });
-db.subway.insert({ "_id" : "8Yj5TheQy22u8WhSX", "lat" : 55.735679, "lng" : 37.516865, "id" : "3.173", "name" : "Парк Победы" });
-db.subway.insert({ "_id" : "uukjTdrHwrxy5YNyQ", "lat" : 55.731414, "lng" : 37.636294, "id" : "5.102", "name" : "Павелецкая" });
-db.subway.insert({ "_id" : "93SqpKaaBLpWdWb8h", "lat" : 55.735221, "lng" : 37.593095, "id" : "5.104", "name" : "Парк культуры" });
-db.subway.insert({ "_id" : "4YkjgQbNiZ2MnfHQu", "lat" : 55.749083, "lng" : 37.582173, "id" : "4.132", "name" : "Смоленская" });
-db.subway.insert({ "_id" : "c76M53HGSEhGBwnfP", "lat" : 55.779584, "lng" : 37.633646, "id" : "5.119", "name" : "Проспект Мира" });
-db.subway.insert({ "_id" : "M5NyYKqqsW9pXZyuf", "lat" : 55.74073, "lng" : 37.625624, "id" : "6.90", "name" : "Третьяковская" });
-db.subway.insert({ "_id" : "se4xGf2K4xNQ8cRoX", "lat" : 55.742396, "lng" : 37.653334, "id" : "5.76", "name" : "Таганская" });
-db.subway.insert({ "_id" : "a2ahrS3jJaoiZwPoN", "lat" : 55.730815, "lng" : 37.446754, "id" : "4.471", "name" : "Кунцевская" });

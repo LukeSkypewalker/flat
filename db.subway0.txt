@@ -1,4 +1,0 @@
-db.subway.insert({id: 'Беговая'});
-db.subway.insert({id: 'Фили'});
-db.subway.insert({id: 'Семеновская'});
-db.subway.insert({id: 'ВДНХ'});
