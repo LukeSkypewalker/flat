@@ -33,11 +33,11 @@
 		function myFunction() {
 		    if (Session.get('isShowMap')){
 		    	Session.set('isShowMap', false);
-		    	document.getElementById("mapButton").innerHTML = "Show Map";
+		    	document.getElementById("mapButton").innerHTML = "Показать карту";
 		    }
 		    else {
 		    	Session.set('isShowMap', true);
-		    	document.getElementById("mapButton").innerHTML = "Hide Map";
+		    	document.getElementById("mapButton").innerHTML = "Станции метро";
 		    }
 		}
 	</script>
@@ -126,14 +126,14 @@
 			</div>
 		</div>
 		<br><br>
-		<input class="form-control" type="text" name="srcPrice" placeholder="Type curent rent price">
-		<input class="form-control" type="text" name="dstPrice" placeholder="Type MAX affordable price">
+		<input class="form-control" type="text" name="srcPrice" placeholder="Текущая арендная плата">
+		<input class="form-control" type="text" name="dstPrice" placeholder="Максимальная арендная плата">
 		<br><br>
-		<input class="form-control" required="test-required" type="text" name="email" placeholder="Type your real E-mail">
+		<input class="form-control" required="test-required" type="text" name="email" placeholder="Ваш E-mail">
 		<br><br>
 
 
-		<button type="submit" class="btn btn-primary btn-lg btn-primary-outline">Lets Change!</button>
+		<button type="submit" class="btn btn-primary btn-lg btn-primary-outline">Переехать!</button>
 
 
 	</form>
